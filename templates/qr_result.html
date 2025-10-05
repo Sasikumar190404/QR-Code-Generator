@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generated - Digital Restaurant Menu</title>
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+    }
+
+    .navbar-brand {
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin-top: 80px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      color: #0d6efd;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    img {
+      width: 250px;
+      height: 250px;
+      object-fit: contain;
+      border: 3px solid #dee2e6;
+      border-radius: 15px;
+      padding: 10px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: 600;
+      transition: background 0.3s ease-in-out, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #6610f2, #0d6efd);
+      transform: scale(1.05);
+    }
+
+    small {
+      display: block;
+      margin-top: 15px;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        margin-top: 40px;
+        padding: 30px 20px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand">🍽 Generate QR Code</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>{{ name }}</h2>
+    <img src="{{ qr_url }}" alt="QR Code">
+
+    <div>
+      <a href="{{ qr_url }}" download="{{ file_name }}" class="btn btn-primary mt-3">
+        ⬇️ Download QR Code
+      </a>
+      <small>Thank you for using our QR Code Generator Tool!</small>
+    </div>
+  </div>
+
+</body>
+
+</html>
